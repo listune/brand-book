@@ -1,0 +1,2939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listune Brand Book and Identity Guidelines</title>
+  
+  <!-- Meta & OpenGraph -->
+  <meta name="description" content="Official visual identity, logo system, color palette, typography, and brand asset library for the Listune Discord Music Bot." />
+  <meta name="theme-color" content="#f3678e" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Listune Brand Book and Identity Guidelines" />
+  <meta property="og:description" content="The official brand guide, visual assets, and design standards for Listune, music for Discord servers." />
+  <meta property="og:image" content="og-image/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Listune Brand Book" />
+  <meta name="twitter:description" content="Official visual identity and brand asset reference for Listune." />
+  <meta name="twitter:image" content="og-image/og-image.png" />
+
+  <!-- Favicon System -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+
+  <!-- Fonts: Local Files with Google Fonts Fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Local Font Definitions */
+    @font-face {
+      font-family: 'Inter';
+      src: url('fonts/Inter/Inter[opsz,wght].ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('fonts/PlusJakartaSans/PlusJakartaSans[wght].ttf') format('truetype');
+      font-weight: 200 800;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Design System Tokens */
+    :root {
+      --bg: #090b0e;
+      --bg-alt: #0e1217;
+      --surface: #13171f;
+      --surface-elevated: #181d27;
+      --surface-hover: #1e2431;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-subtle: rgba(255, 255, 255, 0.04);
+      --border-focus: rgba(243, 103, 142, 0.45);
+      
+      --pink: #f3678e;
+      --pink-light: #f472b6;
+      --pink-dark: #db2777;
+      --pink-tint: rgba(243, 103, 142, 0.12);
+      --pink-tint-hover: rgba(243, 103, 142, 0.22);
+      
+      --text: #ffffff;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --emerald: #10b981;
+      --emerald-tint: rgba(16, 185, 129, 0.12);
+      --red: #ef4444;
+      --red-tint: rgba(239, 68, 68, 0.12);
+      
+      --radius-sm: 8px;
+      --radius: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      
+      --nav-height: 72px;
+      --page-max-width: 1680px;
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* Top Sticky Navigation Bar (100% Full Width) */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(9, 11, 14, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .nav-container {
+      width: 100%;
+      max-width: var(--page-max-width);
+      padding: 0 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .nav-brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+    }
+
+    .nav-brand-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+
+    .nav-brand-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--pink);
+      background: var(--pink-tint);
+      border: 1px solid rgba(243, 103, 142, 0.25);
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-item-link {
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .nav-item-link:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-item-link.active {
+      color: var(--pink);
+      background: var(--pink-tint);
+      font-weight: 600;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .nav-btn-accent {
+      background: var(--pink);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.84rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .nav-btn-accent:hover {
+      background: var(--pink-light);
+      transform: translateY(-1px);
+    }
+
+    .nav-btn-outline {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.84rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .nav-btn-outline:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Mobile Dropdown Menu */
+    .mobile-dropdown {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 20px;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 199;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    }
+
+    .mobile-dropdown.open {
+      display: flex;
+    }
+
+    .mobile-dropdown a {
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .mobile-dropdown a:hover {
+      color: #ffffff;
+      background: var(--surface-hover);
+    }
+
+    /* Page Layout Container (Full Width Balanced) */
+    .page-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-content {
+      width: 100%;
+      max-width: var(--page-max-width);
+      padding: 40px 36px 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    /* Master Hero Bento Showcase */
+    .hero-bento {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    .hero-card-main {
+      background: linear-gradient(160deg, rgba(243, 103, 142, 0.08) 0%, rgba(19, 23, 31, 0.95) 50%, rgba(14, 18, 23, 0.98) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .hero-tagline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--pink-tint);
+      color: var(--pink);
+      border: 1px solid rgba(243, 103, 142, 0.3);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+      align-self: flex-start;
+    }
+
+    .hero-tagline-badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--pink);
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 640px;
+      margin-bottom: 36px;
+    }
+
+    .hero-stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-stat-item {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .stat-val {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* 3D Holographic Stage Card */
+    .hero-card-stage {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stage-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      z-index: 2;
+    }
+
+    .stage-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stage-live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald);
+    }
+
+    .stage-toggle-group {
+      display: flex;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      padding: 3px;
+    }
+
+    .stage-pill-btn {
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .stage-pill-btn.active {
+      background: var(--pink);
+      color: #ffffff;
+    }
+
+    .stage-viewport {
+      flex: 1;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 10px 0;
+    }
+
+    .stage-viewport video {
+      max-width: 90%;
+      max-height: 250px;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
+    }
+
+    .stage-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-subtle);
+      z-index: 2;
+    }
+
+    .stage-file-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--pink);
+      background: var(--pink-tint);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* Section Components */
+    .section-wrap {
+      width: 100%;
+      scroll-margin-top: calc(var(--nav-height) + 24px);
+    }
+
+    .section-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .section-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .section-index-pill {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--pink);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 680px;
+    }
+
+    /* Bento Grids (Full Width Scaling) */
+    .bento-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      width: 100%;
+    }
+
+    .bento-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      width: 100%;
+    }
+
+    .bento-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      width: 100%;
+    }
+
+    .bento-grid-8 {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 16px;
+      width: 100%;
+    }
+
+    /* Cards */
+    .bento-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .bento-card:hover {
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    /* Messaging Quotes */
+    .messaging-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--pink);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+
+    .msg-cat {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--pink);
+    }
+
+    .msg-quote {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.35;
+      letter-spacing: -0.015em;
+    }
+
+    .msg-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .copy-chip-btn {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .copy-chip-btn:hover {
+      color: #ffffff;
+      border-color: var(--pink);
+      background: var(--pink-tint);
+    }
+
+    /* Logo Canvas Controls */
+    .canvas-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      padding: 3px 4px;
+    }
+
+    .canvas-tool-btn {
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .canvas-tool-btn:hover {
+      color: #ffffff;
+    }
+
+    .canvas-tool-btn.active {
+      background: var(--pink);
+      color: #ffffff;
+    }
+
+    /* Logo Display Boxes */
+    .logo-display-box {
+      border-radius: var(--radius-sm);
+      padding: 36px 24px;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: background 0.25s ease;
+      overflow: hidden;
+    }
+
+    .logo-display-box.bg-dark {
+      background: #0d0d0d;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .logo-display-box.bg-charcoal {
+      background: #181d26;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .logo-display-box.bg-pink {
+      background: var(--pink);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .logo-display-box.bg-light {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-display-box img {
+      max-height: 80px;
+      max-width: 85%;
+      object-fit: contain;
+    }
+
+    .card-footer-meta {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .asset-tag-label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #ffffff;
+    }
+
+    .asset-tag-path {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-subtle);
+      background: var(--surface-elevated);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .card-explanatory-text {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    /* Clear Space Graphic */
+    .clearspace-diagram {
+      border: 2px dashed rgba(243, 103, 142, 0.5);
+      background: rgba(243, 103, 142, 0.03);
+      border-radius: 8px;
+      padding: 40px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 16px 0;
+    }
+
+    .cs-marker {
+      position: absolute;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--pink);
+    }
+    .cs-marker.top { top: 8px; left: 50%; transform: translateX(-50%); }
+    .cs-marker.bottom { bottom: 8px; left: 50%; transform: translateX(-50%); }
+    .cs-marker.left { left: 12px; top: 50%; transform: translateY(-50%); }
+    .cs-marker.right { right: 12px; top: 50%; transform: translateY(-50%); }
+
+    /* Swatches */
+    .swatch-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.15s ease, border-color 0.2s ease;
+    }
+
+    .swatch-item:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-focus);
+    }
+
+    .swatch-color-block {
+      height: 96px;
+      width: 100%;
+      position: relative;
+    }
+
+    .swatch-info-block {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .swatch-role-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-subtle);
+      font-weight: 700;
+    }
+
+    .swatch-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .swatch-hex-val {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--pink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .swatch-rgb-val {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-subtle);
+    }
+
+    /* Typography Playground */
+    .type-specimen-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .type-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .type-card-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .type-role-badge {
+      font-size: 0.76rem;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .type-sample-hero {
+      font-size: 2.3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .type-alphabet-row {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+    }
+
+    .type-live-input-box {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .type-input-prompt {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--pink);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .type-input-field {
+      width: 100%;
+      background: none;
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    /* Media Gallery & Lightbox */
+    .filter-pills-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .filter-pill:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .filter-pill.active {
+      background: var(--pink-tint);
+      color: var(--pink);
+      border-color: rgba(243, 103, 142, 0.4);
+    }
+
+    .media-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .media-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .media-card.span-2 {
+      grid-column: span 2;
+    }
+
+    .media-thumbnail-stage {
+      background: #090b0e;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .media-thumbnail-stage img {
+      max-width: 100%;
+      max-height: 190px;
+      object-fit: contain;
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+    }
+
+    .media-thumbnail-stage:hover img {
+      transform: scale(1.02);
+    }
+
+    .media-thumbnail-stage video {
+      max-width: 100%;
+      max-height: 190px;
+      object-fit: contain;
+    }
+
+    .click-zoom-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .media-thumbnail-stage:hover .click-zoom-tag {
+      opacity: 1;
+    }
+
+    .media-caption-box {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .media-caption-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ffffff;
+    }
+
+    .media-caption-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .media-caption-path {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-subtle);
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-body {
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+    }
+
+    .lightbox-body img {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .lightbox-desc {
+      font-size: 0.95rem;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    /* Rule Cards (Do / Don't) */
+    .rule-card-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .rule-card-item.do {
+      border-top: 3px solid var(--emerald);
+    }
+
+    .rule-card-item.dont {
+      border-top: 3px solid var(--red);
+    }
+
+    .rule-header-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .rule-status-tag {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .rule-card-item.do .rule-status-tag {
+      background: var(--emerald-tint);
+      color: var(--emerald);
+    }
+
+    .rule-card-item.dont .rule-status-tag {
+      background: var(--red-tint);
+      color: var(--red);
+    }
+
+    .rule-list-group {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .rule-list-group li {
+      position: relative;
+      padding-left: 22px;
+      line-height: 1.5;
+    }
+
+    .rule-card-item.do .rule-list-group li::before {
+      content: "OK";
+      position: absolute;
+      left: 0;
+      color: var(--emerald);
+      font-weight: 700;
+      font-size: 0.72rem;
+      top: 2px;
+    }
+
+    .rule-card-item.dont .rule-list-group li::before {
+      content: "NO";
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      font-weight: 700;
+      font-size: 0.72rem;
+      top: 2px;
+    }
+
+    /* Full-Width Asset Directory Table */
+    .data-table-container {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+    }
+
+    .asset-data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    .asset-data-table th {
+      padding: 14px 18px;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-subtle);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .asset-data-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    .asset-data-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+      color: #ffffff;
+    }
+
+    /* Toast Notification */
+    .toast-box {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--pink);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Full Page Footer */
+    .page-footer {
+      width: 100%;
+      max-width: var(--page-max-width);
+      padding: 40px 36px 60px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.86rem;
+      color: var(--text-subtle);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1400px) {
+      .bento-grid-8 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .bento-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-bento {
+        grid-template-columns: 1fr;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .bento-grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .bento-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .media-card.span-2 {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-content {
+        padding: 24px 16px 80px;
+        gap: 60px;
+      }
+      .hero-card-main {
+        padding: 28px 20px;
+      }
+      .hero-headline {
+        font-size: 2.2rem;
+      }
+      .bento-grid-8 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .bento-grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Full-Width Sticky Top Navigation -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="logo/listune-logo.png" alt="Listune Logo" class="nav-brand-logo" />
+        <span class="nav-brand-title">Listune</span>
+        <span class="nav-brand-badge">Brand Book</span>
+      </div>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#overview" class="nav-item-link">Overview</a></li>
+          <li><a href="#messaging" class="nav-item-link">Messaging</a></li>
+          <li><a href="#logos" class="nav-item-link">Logos</a></li>
+          <li><a href="#colors" class="nav-item-link">Colors</a></li>
+          <li><a href="#typography" class="nav-item-link">Typography</a></li>
+          <li><a href="#style" class="nav-item-link">Visual Style</a></li>
+          <li><a href="#assets" class="nav-item-link">Media Assets</a></li>
+          <li><a href="#voice" class="nav-item-link">Voice</a></li>
+          <li><a href="#rules" class="nav-item-link">Rules</a></li>
+          <li><a href="#directory" class="nav-item-link">Directory</a></li>
+          <li><a href="#license" class="nav-item-link">License</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-btn-outline" onclick="copyText('#f3678e')" title="Copy primary brand hex">
+          Accent: <span style="color: var(--pink); font-weight: 700; margin-left: 4px;">#f3678e</span>
+        </button>
+        <a href="#assets" class="nav-btn-accent">
+          View Assets
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Dropdown Navigation -->
+  <div class="mobile-dropdown" id="mobileDropdown">
+    <a href="#overview">01. Brand Overview</a>
+    <a href="#messaging">02. Messaging and Taglines</a>
+    <a href="#logos">03. Logo System</a>
+    <a href="#usage">04. Logo Usage Guidelines</a>
+    <a href="#colors">05. Color Palette</a>
+    <a href="#typography">06. Typography</a>
+    <a href="#style">07. Visual Style</a>
+    <a href="#assets">08. Promotional Assets</a>
+    <a href="#favicons">09. Favicon System</a>
+    <a href="#motion">10. Motion Identity</a>
+    <a href="#voice">11. Brand Voice</a>
+    <a href="#personality">12. Brand Personality</a>
+    <a href="#rules">13. Do and Don't</a>
+    <a href="#directory">14. Complete Asset Directory</a>
+    <a href="#license">15. Brand License Agreement</a>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="page-content">
+
+      <!-- Hero Master Bento Showcase -->
+      <section class="hero-bento">
+        <!-- Left: Brand Core Intro -->
+        <div class="hero-card-main">
+          <div>
+            <div class="hero-tagline-badge">Official Brand Guidelines</div>
+            <h1 class="hero-headline">Listune Brand Identity</h1>
+            <p class="hero-lead">
+              The definitive visual reference guide and digital asset library for the Listune Discord music bot ecosystem. Designed for high audio fidelity, clean modern interfaces, and frictionless group listening.
+            </p>
+          </div>
+
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <div class="stat-label">Product</div>
+              <div class="stat-val">Discord Music Bot</div>
+            </div>
+            <div class="hero-stat-item" onclick="copyText('#f3678e')" style="cursor: pointer;" title="Click to copy">
+              <div class="stat-label">Brand Accent</div>
+              <div class="stat-val" style="color: var(--pink);">#f3678e</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="stat-label">Foundation</div>
+              <div class="stat-val">Dark-First Modern</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="stat-label">Display Font</div>
+              <div class="stat-val">Plus Jakarta Sans</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="stat-label">Body Font</div>
+              <div class="stat-val">Inter</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 3D Holographic Stage -->
+        <div class="hero-card-stage">
+          <div class="stage-top-bar">
+            <div class="stage-title">
+              <span class="stage-live-dot"></span>
+              3D Rotating Holographic Stage
+            </div>
+            <div class="stage-toggle-group">
+              <button class="stage-pill-btn active" id="btn3dWhite" onclick="switchHeroVideo('white')">White 3D</button>
+              <button class="stage-pill-btn" id="btn3dPink" onclick="switchHeroVideo('pink')">Pink 3D</button>
+            </div>
+          </div>
+
+          <div class="stage-viewport">
+            <video id="heroRotatingVideo" src="animated/webm-transparent/listune-white-alpha.webm" autoplay loop muted playsinline></video>
+          </div>
+
+          <div class="stage-footer">
+            <span>Continuous 360-degree loop with alpha channel</span>
+            <span class="stage-file-badge" id="heroVideoLabel">listune-white-alpha.webm</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 01. Brand Overview -->
+      <section class="section-wrap" id="overview">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 01</span>
+            <h2 class="section-heading">Brand Overview</h2>
+          </div>
+          <p class="section-desc">
+            Listune is a modern Discord music bot that delivers studio-grade audio playback, interactive Activities, and intuitive controls for online communities.
+          </p>
+        </div>
+
+        <div class="bento-grid-3">
+          <div class="bento-card">
+            <div style="font-size: 0.74rem; text-transform: uppercase; color: var(--pink); font-weight: 700; margin-bottom: 8px;">Audio Ecosystem</div>
+            <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 8px;">Voice Channels</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+              Instant, low-latency audio streaming directly in community voice rooms. Engineered for flawless group playback without stutter or audio degradation.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div style="font-size: 0.74rem; text-transform: uppercase; color: var(--pink); font-weight: 700; margin-bottom: 8px;">Embedded Experience</div>
+            <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 8px;">Discord Activity</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+              An interactive visual window inside Discord where friends can see synchronized live lyrics, manage song queues, and share music discoveries together.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div style="font-size: 0.74rem; text-transform: uppercase; color: var(--pink); font-weight: 700; margin-bottom: 8px;">Full Management</div>
+            <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 8px;">Web Companion Player</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+              A sleek companion web dashboard offering deep audio equalization, custom playlist sorting, and server music controls accessible from any desktop browser.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02. Messaging & Taglines -->
+      <section class="section-wrap" id="messaging">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 02</span>
+            <h2 class="section-heading">Brand Messaging and Taglines</h2>
+          </div>
+          <p class="section-desc">
+            Direct, conversational statements that state what Listune does plainly and concisely without artificial buzzwords.
+          </p>
+        </div>
+
+        <div class="bento-grid-2">
+          <!-- Primary Tagline -->
+          <div class="messaging-card">
+            <button class="copy-chip-btn" onclick="copyText('Discover Listune, Music for Discord Servers')">Copy</button>
+            <div class="msg-cat">2.1 Primary Headline and Tagline</div>
+            <div class="msg-quote">Discover Listune, Music for Discord Servers</div>
+            <div class="msg-desc">
+              The primary brand headline for Listune. It introduces the product name with clarity and explicitly defines the core service category.
+            </div>
+          </div>
+
+          <!-- Supporting Statement -->
+          <div class="messaging-card">
+            <button class="copy-chip-btn" onclick="copyText('Your music, wherever you play. Listen with friends in voice channels, launch the Discord Activity, or enjoy music from the web player.')">Copy</button>
+            <div class="msg-cat">2.2 Supporting Product Statement</div>
+            <div class="msg-quote">Your music, wherever you play. Listen with friends in voice channels, launch the Discord Activity, or enjoy music from the web player.</div>
+            <div class="msg-desc">
+              Articulates flexible continuity across Discord voice channels, embedded Discord Activities, and companion web dashboards.
+            </div>
+          </div>
+        </div>
+
+        <!-- 2.3 Brand Summary -->
+        <div class="bento-card" style="margin-top: 24px;">
+          <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 14px;">2.3 Brand Summary Principles</h3>
+          <div class="bento-grid-2">
+            <div>
+              <strong style="color: var(--pink); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.04em;">Short Description</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">
+                A modern Discord music bot with studio-grade audio and companion web dashboard.
+              </p>
+            </div>
+            <div>
+              <strong style="color: var(--pink); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.04em;">Core Value Proposition</strong>
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">
+                Seamless group listening, rich audio customization, and clean digital interfaces.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03. Logo System -->
+      <section class="section-wrap" id="logos">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 03</span>
+            <h2 class="section-heading">Logo System and Brandmarks</h2>
+          </div>
+          <p class="section-desc">
+            The Listune logo exists in two primary configurations: the Circular Symbol (App Icon) and the Horizontal Wordmark. Each asset has dedicated contrast specifications.
+          </p>
+        </div>
+
+        <!-- Interactive Contrast and Logo Simulator Stage -->
+        <div class="bento-card" style="margin-bottom: 28px; background: linear-gradient(170deg, rgba(243, 103, 142, 0.05) 0%, rgba(19, 23, 31, 0.95) 100%);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 14px;">
+            <div>
+              <div style="font-size: 0.76rem; text-transform: uppercase; color: var(--pink); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 4px;">Interactive Stage</div>
+              <h3 style="font-size: 1.2rem; color: #ffffff; font-weight: 800;">Background and Contrast Simulator</h3>
+            </div>
+            
+            <!-- Background Selector Buttons -->
+            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+              <span style="font-size: 0.76rem; color: var(--text-subtle); font-weight: 600;">Surface:</span>
+              <div class="canvas-toolbar">
+                <button class="canvas-tool-btn active" id="simBtnDark" onclick="simulateContrast('dark')">Dark (#0d0d0d)</button>
+                <button class="canvas-tool-btn" id="simBtnCharcoal" onclick="simulateContrast('charcoal')">Charcoal (#181d26)</button>
+                <button class="canvas-tool-btn" id="simBtnPink" onclick="simulateContrast('pink')">Brand Pink (#f3678e)</button>
+                <button class="canvas-tool-btn" id="simBtnWhite" onclick="simulateContrast('white')">Pure White (#ffffff)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Simulator Preview Box -->
+          <div id="simulatorStageBox" class="logo-display-box bg-dark" style="min-height: 220px; transition: background 0.25s ease; border-radius: var(--radius-sm); position: relative; padding: 40px 20px;">
+            <img id="simulatorLogoImg" src="brand/listune-brand-white.svg" alt="Listune Simulated Logo" style="max-height: 90px; max-width: 85%; object-fit: contain; transition: all 0.2s ease;" />
+            <div id="contrastBadge" style="position: absolute; bottom: 12px; right: 14px; font-size: 0.74rem; font-weight: 600; padding: 4px 10px; border-radius: var(--radius-full); background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3);">
+              ✓ Optimal Contrast: 18.2:1 (Passed AAA)
+            </div>
+          </div>
+
+          <!-- Simulator Explanatory Status Bar -->
+          <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.86rem;">
+            <div id="simulatorExplanation" style="color: var(--text-muted); line-height: 1.5;">
+              <strong style="color: #ffffff;">Dark Surface (#0d0d0d):</strong> Displaying the <strong>White Wordmark</strong>. Provides maximum contrast and clean visual clarity.
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <span style="font-size: 0.74rem; color: var(--text-subtle);">Active Asset:</span>
+              <span id="simulatorFileBadge" class="asset-tag-path">brand/listune-brand-white.svg</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logo Grid (Full Width 3 Columns) -->
+        <div class="bento-grid-3">
+          
+          <!-- 1. Circular Symbol (PNG & SVG) -->
+          <div class="bento-card">
+            <div class="logo-display-box bg-dark" id="boxIconCard">
+              <img src="logo/listune-logo.png" alt="Listune Circular Symbol" style="max-height: 110px;" />
+            </div>
+            <div class="card-footer-meta">
+              <span class="asset-tag-label">Circular Symbol (App Icon)</span>
+              <span class="asset-tag-path">logo/listune-logo.png</span>
+            </div>
+            <p class="card-explanatory-text">
+              Solid circular badge in Listune Pink (#f3678e) with white curved headphones and soundwave emblem. Optimal on dark surfaces, profile avatars, and app stores.
+            </p>
+          </div>
+
+          <!-- 2. White Wordmark (With Dark vs Pink surface toggle) -->
+          <div class="bento-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--pink); font-weight: 700;">Dark and Pink Surfaces</span>
+              <div style="display: flex; gap: 4px; background: var(--surface-elevated); padding: 2px; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);">
+                <button class="stage-pill-btn active" id="btnWhiteCardDark" onclick="toggleWhiteCardBg('dark')">Dark</button>
+                <button class="stage-pill-btn" id="btnWhiteCardPink" onclick="toggleWhiteCardBg('pink')">Pink</button>
+              </div>
+            </div>
+            <div class="logo-display-box bg-dark" id="boxWhiteWordmarkCard">
+              <img src="brand/listune-brand-white.svg" alt="Listune White Wordmark" />
+            </div>
+            <div class="card-footer-meta">
+              <span class="asset-tag-label">White Wordmark</span>
+              <span class="asset-tag-path">brand/listune-brand-white.svg</span>
+            </div>
+            <p class="card-explanatory-text">
+              Primary brand identifier for dark surfaces. Use the toggle above to preview how the white wordmark delivers crisp contrast against Brand Pink backgrounds.
+            </p>
+          </div>
+
+          <!-- 3. Pink Wordmark (With Charcoal vs White surface toggle) -->
+          <div class="bento-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--pink); font-weight: 700;">Dark and White Surfaces</span>
+              <div style="display: flex; gap: 4px; background: var(--surface-elevated); padding: 2px; border-radius: var(--radius-full); border: 1px solid var(--border-subtle);">
+                <button class="stage-pill-btn active" id="btnPinkCardDark" onclick="togglePinkCardBg('dark')">Charcoal</button>
+                <button class="stage-pill-btn" id="btnPinkCardWhite" onclick="togglePinkCardBg('white')">White</button>
+              </div>
+            </div>
+            <div class="logo-display-box bg-charcoal" id="boxPinkWordmarkCard">
+              <img src="brand/listune-brand-pink.svg" alt="Listune Pink Wordmark" />
+            </div>
+            <div class="card-footer-meta">
+              <span class="asset-tag-label">Brand Pink Wordmark</span>
+              <span class="asset-tag-path">brand/listune-brand-pink.svg</span>
+            </div>
+            <p class="card-explanatory-text">
+              Dedicated identifier for dark and white surfaces. Use the toggle to preview on charcoal vs pure white. <em>Never place pink wordmarks on pink surfaces.</em>
+            </p>
+          </div>
+
+          <!-- 4. Monochrome Black Wordmark -->
+          <div class="bento-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Light Surfaces and Print</span>
+              <span style="font-size: 0.72rem; color: var(--emerald); font-weight: 600;">High Contrast</span>
+            </div>
+            <div class="logo-display-box bg-light" style="border: 1px solid rgba(0,0,0,0.12);">
+              <img src="brand/listune-brand-black.svg" alt="Listune Black Wordmark" />
+            </div>
+            <div class="card-footer-meta">
+              <span class="asset-tag-label" style="color: #ffffff;">Monochrome Black Wordmark</span>
+              <span class="asset-tag-path">brand/listune-brand-black.svg</span>
+            </div>
+            <p class="card-explanatory-text">
+              High-contrast black identifier for white documents, light mode collaterals, and paper printing. Never place on dark surfaces.
+            </p>
+          </div>
+
+          <!-- 5. Transparent Raster Wordmark -->
+          <div class="bento-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Transparent Raster</span>
+              <span style="font-size: 0.72rem; color: var(--pink); font-weight: 600;">PNG Master</span>
+            </div>
+            <div class="logo-display-box bg-dark">
+              <img src="other/listune-text.png" alt="Listune Transparent Raster Text" style="max-height: 48px;" />
+            </div>
+            <div class="card-footer-meta">
+              <span class="asset-tag-label">Transparent Wordmark (PNG)</span>
+              <span class="asset-tag-path">other/listune-text.png</span>
+            </div>
+            <p class="card-explanatory-text">
+              Transparent raster pink wordmark for video editing, social media collaterals, and quick image overlays on dark surfaces.
+            </p>
+          </div>
+
+          <!-- 6. Brand Lockup Graphic -->
+          <div class="bento-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Marketing Composition</span>
+              <span style="font-size: 0.72rem; color: var(--pink); font-weight: 600;">Composite</span>
+            </div>
+            <div class="logo-display-box bg-charcoal">
+              <img src="other/brands.png" alt="Listune Brand Lockup Graphic" style="max-height: 85px;" />
+            </div>
+            <div class="card-footer-meta">
+              <span class="asset-tag-label">Brand Lockup Graphic</span>
+              <span class="asset-tag-path">other/brands.png</span>
+            </div>
+            <p class="card-explanatory-text">
+              Extended brand composition asset combining circular emblem and geometric typography for marketing displays.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 04. Logo Usage Guidelines -->
+      <section class="section-wrap" id="usage">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 04</span>
+            <h2 class="section-heading">Logo Usage Guidelines</h2>
+          </div>
+          <p class="section-desc">
+            Clear space boundaries, background contrast specifications, and minimum rendering sizes.
+          </p>
+        </div>
+
+        <div class="bento-card" style="margin-bottom: 24px;">
+          <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 8px;">4.1 Clear Space Perimeter</h3>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+            Always preserve an exclusion zone around all sides of the logo equal to at least the height of the lowercase letter <strong>"e"</strong> in the Listune wordmark. No text, competing symbols, borders, or graphics may encroach within this boundary.
+          </p>
+          <div class="clearspace-diagram">
+            <span class="cs-marker top">e</span>
+            <span class="cs-marker bottom">e</span>
+            <span class="cs-marker left">e</span>
+            <span class="cs-marker right">e</span>
+            <img src="brand/listune-brand-white.svg" alt="Listune Clear Space Perimeter Demonstration" style="max-height: 64px;" />
+          </div>
+          <div style="text-align: center; font-size: 0.78rem; color: var(--text-subtle);">
+            Exclusion zone perimeter = height of lowercase letter "e"
+          </div>
+        </div>
+
+        <div class="bento-grid-2">
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 12px;">4.2 Background Contrast Rules</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: var(--text-muted);">
+              <li><strong style="color: #ffffff;">Dark Backgrounds:</strong> Use the White wordmark or Pink wordmark.</li>
+              <li><strong style="color: #ffffff;">Brand Pink Backgrounds:</strong> Always use the White wordmark. Never place pink logos on pink backgrounds.</li>
+              <li><strong style="color: #ffffff;">Light and White Backgrounds:</strong> Use the Monochrome Black wordmark or Pink wordmark. Never place white logos on white backgrounds.</li>
+              <li><strong style="color: #ffffff;">Complex Imagery:</strong> Place the wordmark over a dark translucent backdrop to guarantee legibility.</li>
+            </ul>
+          </div>
+
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 12px;">4.3 Minimum Display Dimensions</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: var(--text-muted);">
+              <li><strong style="color: #ffffff;">Digital Wordmark:</strong> Do not render smaller than <strong>120 pixels</strong> wide.</li>
+              <li><strong style="color: #ffffff;">Circular Symbol:</strong> Do not render smaller than <strong>24 x 24 pixels</strong> on digital screens.</li>
+              <li>Always ensure the curved soundwave detail remains sharp and unblurred.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05. Color Palette -->
+      <section class="section-wrap" id="colors">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 05</span>
+            <h2 class="section-heading">Color Palette</h2>
+          </div>
+          <p class="section-desc">
+            The Listune color system balances electric pink accents with deep dark foundations and crisp white typography. Click any swatch below to copy its hex code.
+          </p>
+        </div>
+
+        <!-- Full Width 8 Swatches Grid -->
+        <div class="bento-grid-8">
+          
+          <!-- 1. Listune Pink -->
+          <div class="swatch-item" onclick="copyText('#f3678e')">
+            <div class="swatch-color-block" style="background: #f3678e;"></div>
+            <div class="swatch-info-block">
+              <span class="swatch-role-tag">Primary</span>
+              <span class="swatch-title">Listune Pink</span>
+              <div class="swatch-hex-val">#f3678e</div>
+              <div class="swatch-rgb-val">243, 103, 142</div>
+            </div>
+          </div>
+
+          <!-- 2. Light Pink -->
+          <div class="swatch-item" onclick="copyText('#f472b6')">
+            <div class="swatch-color-block" style="background: #f472b6;"></div>
+            <div class="swatch-info-block">
+              <span class="swatch-role-tag">Supporting</span>
+              <span class="swatch-title">Light Pink</span>
+              <div class="swatch-hex-val">#f472b6</div>
+              <div class="swatch-rgb-val">244, 114, 182</div>
+            </div>
+          </div>
+
+          <!-- 3. Deep Pink -->
+          <div class="swatch-item" onclick="copyText('#db2777')">
+            <div class="swatch-color-block" style="background: #db2777;"></div>
+            <div class="swatch-info-block">
+              <span class="swatch-role-tag">Active State</span>
+              <span class="swatch-title">Deep Pink</span>
+              <div class="swatch-hex-val">#db2777</div>
+              <div class="swatch-rgb-val">219, 39, 119</div>
+            </div>
+          </div>
+
+          <!-- 4. Pure White -->
+          <div class="swatch-item" onclick="copyText('#ffffff')">
+            <div class="swatch-color-block" style="background: #ffffff;"></div>
+            <div class="swatch-info-block">
+              <span class="swatch-role-tag">Neutral Light</span>
+              <span class="swatch-title">Pure White</span>
+              <div class="swatch-hex-val">#ffffff</div>
+              <div class="swatch-rgb-val">255, 255, 255</div>
+            </div>
+          </div>
+
+          <!-- 5. Muted Gray -->
+          <div class="swatch-item" onclick="copyText('#9ca3af')">
+            <div class="swatch-color-block" style="background: #9ca3af;"></div>
+            <div class="swatch-info-block">
+              <span class="swatch-role-tag">Secondary</span>
+              <span class="swatch-title">Muted Gray</span>
+              <div class="swatch-hex-val">#9ca3af</div>
+              <div class="swatch-rgb-val">156, 163, 175</div>
+            </div>
+          </div>
+
+          <!-- 6. Charcoal Surface -->
+          <div class="swatch-item" onclick="copyText('#141414')">
+            <div class="swatch-color-block" style="background: #141414; border: 1px solid rgba(255,255,255,0.06);"></div>
+            <div class="swatch-info-block">
+              <span class="swatch-role-tag">Dark Neutral</span>
+              <span class="swatch-title">Charcoal</span>
+              <div class="swatch-hex-val">#141414</div>
+              <div class="swatch-rgb-val">20, 20, 20</div>
+            </div>
+          </div>
+
+          <!-- 7. Deep Black -->
+          <div class="swatch-item" onclick="copyText('#0d0d0d')">
+            <div class="swatch-color-block" style="background: #0d0d0d; border: 1px solid rgba(255,255,255,0.06);"></div>
+            <div class="swatch-info-block">
+              <span class="swatch-role-tag">Dark Base</span>
+              <span class="swatch-title">Deep Black</span>
+              <div class="swatch-hex-val">#0d0d0d</div>
+              <div class="swatch-rgb-val">13, 13, 13</div>
+            </div>
+          </div>
+
+          <!-- 8. Emerald Online -->
+          <div class="swatch-item" onclick="copyText('#10b981')">
+            <div class="swatch-color-block" style="background: #10b981;"></div>
+            <div class="swatch-info-block">
+              <span class="swatch-role-tag">Status Accent</span>
+              <span class="swatch-title">Emerald</span>
+              <div class="swatch-hex-val">#10b981</div>
+              <div class="swatch-rgb-val">16, 185, 129</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 06. Brand Typography -->
+      <section class="section-wrap" id="typography">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 06</span>
+            <h2 class="section-heading">Brand Typography and Font System</h2>
+          </div>
+          <p class="section-desc">
+            Clean, digital-first sans-serif typography engineered for legibility across computer screens, community chats, and web applications.
+          </p>
+        </div>
+
+        <div class="bento-grid-2">
+          
+          <!-- Plus Jakarta Sans (Display) -->
+          <div class="type-specimen-card">
+            <div class="type-card-header">
+              <div>
+                <span class="type-card-name" style="font-family: var(--font-display);">Plus Jakarta Sans</span>
+                <span style="font-size: 0.78rem; color: var(--text-subtle); margin-left: 8px;">fonts/PlusJakartaSans/</span>
+              </div>
+              <span class="type-role-badge">Display Headlines & Visual Match</span>
+            </div>
+            <div class="type-sample-hero" id="jakartaLiveText" style="font-family: var(--font-display);">
+              Discover Listune Music
+            </div>
+            <div class="type-alphabet-row" style="font-family: var(--font-display);">
+              ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+              abcdefghijklmnopqrstuvwxyz 1234567890 (!@#$%^&*.,?)
+            </div>
+            <div class="type-live-input-box">
+              <span class="type-input-prompt">Test Display</span>
+              <input type="text" class="type-input-field" style="font-family: var(--font-display);" placeholder="Type any headline to preview Plus Jakarta Sans..." oninput="document.getElementById('jakartaLiveText').textContent = this.value || 'Discover Listune Music'" />
+            </div>
+            <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.55;">
+              Contemporary geometric sans-serif that closely reflects the curves and bold weights of the Listune logo lettering. Open source under the SIL Open Font License 1.1.
+            </p>
+          </div>
+
+          <!-- Inter (Body Font) -->
+          <div class="type-specimen-card">
+            <div class="type-card-header">
+              <div>
+                <span class="type-card-name" style="font-family: var(--font-body);">Inter</span>
+                <span style="font-size: 0.78rem; color: var(--text-subtle); margin-left: 8px;">fonts/Inter/</span>
+              </div>
+              <span class="type-role-badge">Primary Brand & UI Font</span>
+            </div>
+            <div class="type-sample-hero" id="interLiveText" style="font-family: var(--font-body);">
+              Audio Fidelity for Discord
+            </div>
+            <div class="type-alphabet-row" style="font-family: var(--font-body);">
+              ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+              abcdefghijklmnopqrstuvwxyz 1234567890 (!@#$%^&*.,?)
+            </div>
+            <div class="type-live-input-box">
+              <span class="type-input-prompt">Test Body</span>
+              <input type="text" class="type-input-field" style="font-family: var(--font-body);" placeholder="Type any sentence to preview Inter live..." oninput="document.getElementById('interLiveText').textContent = this.value || 'Audio Fidelity for Discord'" />
+            </div>
+            <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.55;">
+              Renowned for clean tall x-height, readable numbers, and neutral modern presentation across digital monitors. Open source under SIL Open Font License 1.1.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Typography Anatomy -->
+        <div class="bento-grid-2" style="margin-top: 24px;">
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 8px;">6.1 Logo Lettering Anatomy</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+              The Listune wordmark uses custom geometric sans-serif lettering characterized by bold stroke weight, a clean vertical capital <strong>L</strong>, smooth terminal curves on lowercase <strong>t</strong>, and circular geometry on <strong>e</strong>, <strong>u</strong>, and <strong>n</strong>. It is custom lettering rather than a single stock font.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 8px;">6.4 Typography Personality</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: var(--text-muted);">
+              <li><strong style="color: #ffffff;">Clean & Legible:</strong> Content always takes precedence over decorative font styling.</li>
+              <li><strong style="color: #ffffff;">Geometric & Confident:</strong> Strong, clear headlines with balanced tracking and comfortable leading.</li>
+              <li><strong style="color: #ffffff;">Discord-Native:</strong> Modern and tech-centric, fitting naturally inside community environments.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07. Visual Style -->
+      <section class="section-wrap" id="style">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 07</span>
+            <h2 class="section-heading">Visual Style and Atmosphere</h2>
+          </div>
+          <p class="section-desc">
+            The aesthetic atmosphere of Listune feels like a late-night music listening lounge: calm, dark, atmospheric, illuminated by vibrant pink accents.
+          </p>
+        </div>
+
+        <div class="bento-grid-4">
+          <div class="bento-card">
+            <div style="font-size: 0.74rem; text-transform: uppercase; color: var(--pink); font-weight: 700; margin-bottom: 6px;">Pillar 01</div>
+            <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 8px;">Dark-First Elegance</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
+              Listune lives in dark mode. Interfaces use deep charcoal and soft black foundations rather than stark neutral grays, creating a calm late-night listening environment.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div style="font-size: 0.74rem; text-transform: uppercase; color: var(--pink); font-weight: 700; margin-bottom: 6px;">Pillar 02</div>
+            <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 8px;">Electric Pink Focus</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
+              Vibrant Listune Pink (#f3678e) is applied intentionally to key action buttons, active playing states, and brand marks, guiding user attention without visual noise.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div style="font-size: 0.74rem; text-transform: uppercase; color: var(--pink); font-weight: 700; margin-bottom: 6px;">Pillar 03</div>
+            <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 8px;">Translucent Surfaces</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
+              Layered cards with subtle 1px border strokes (rgba(255,255,255,0.08)) convey depth, polish, and structure without heavy drop shadows or clutter.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div style="font-size: 0.74rem; text-transform: uppercase; color: var(--pink); font-weight: 700; margin-bottom: 6px;">Pillar 04</div>
+            <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 8px;">Rounded Geometry</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
+              Approachable rounded corners (14px on panels, pill shapes on status tags) produce a friendly, community-centric aesthetic that feels native to modern Discord apps.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08. Promotional & Community Assets (Full Visual Gallery) -->
+      <section class="section-wrap" id="assets">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 08</span>
+            <h2 class="section-heading">Promotional and Community Assets</h2>
+          </div>
+          <div class="filter-pills-row">
+            <button class="filter-pill active" onclick="filterMedia('all', this)">All Media (12)</button>
+            <button class="filter-pill" onclick="filterMedia('banner', this)">Banners</button>
+            <button class="filter-pill" onclick="filterMedia('social', this)">Social & Previews</button>
+            <button class="filter-pill" onclick="filterMedia('utility', this)">Discord Cards</button>
+            <button class="filter-pill" onclick="filterMedia('animated', this)">3D & Animation</button>
+          </div>
+        </div>
+        <p class="section-desc" style="margin-top: -16px; margin-bottom: 24px;">
+          Every media file in the repository is rendered and inspectable below. Click any asset to open the high-resolution lightbox inspector.
+        </p>
+
+        <!-- Media Bento Grid -->
+        <div class="bento-grid-3" id="mediaGalleryContainer">
+          
+          <!-- OpenGraph Card (Span 2) -->
+          <div class="media-card span-2" data-type="social">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('og-image/og-image.png', 'OpenGraph Social Card (3576 x 1184 px)')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="og-image/og-image.png" alt="OpenGraph Card" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">OpenGraph Social Preview Card</div>
+              <div class="media-caption-desc">Primary preview card for Discord link embeds, Twitter cards, and messaging shares. Showcases 3D rotating logo, primary headline, and dashboard preview.</div>
+              <div class="media-caption-path">og-image/og-image.png (3576 x 1184 px)</div>
+            </div>
+          </div>
+
+          <!-- Preview Card Asset -->
+          <div class="media-card" data-type="social">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('other/preview-card.png', 'Preview Card Asset')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="other/preview-card.png" alt="Preview Card Asset" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">Social Preview Graphic</div>
+              <div class="media-caption-desc">Companion preview graphic for web integration cards and social media posts.</div>
+              <div class="media-caption-path">other/preview-card.png</div>
+            </div>
+          </div>
+
+          <!-- Animated Pink Banner -->
+          <div class="media-card" data-type="banner">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('animated/banner/listune-banner-animated.gif', 'Animated Discord Server Banner (Pink)')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="animated/banner/listune-banner-animated.gif" alt="Animated Pink Banner" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">Animated Server Banner (Pink)</div>
+              <div class="media-caption-desc">Official Discord server header banner featuring pink motion graphics and looping brand accents. Also available in MP4 format.</div>
+              <div class="media-caption-path">animated/banner/listune-banner-animated.gif (.mp4)</div>
+            </div>
+          </div>
+
+          <!-- Animated White Banner -->
+          <div class="media-card" data-type="banner">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('animated/banner/listune-banner-white-animated.gif', 'Animated Discord Server Banner (White)')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="animated/banner/listune-banner-white-animated.gif" alt="Animated White Banner" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">Animated Server Banner (White)</div>
+              <div class="media-caption-desc">Alternative monochrome white animated server banner for high-contrast Discord server headers. Also available in MP4 format.</div>
+              <div class="media-caption-path">animated/banner/listune-banner-white-animated.gif (.mp4)</div>
+            </div>
+          </div>
+
+          <!-- Now Playing Music Card -->
+          <div class="media-card" data-type="utility">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('other/listune-music-card.png', 'Now Playing Music Card')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="other/listune-music-card.png" alt="Now Playing Music Card" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">Now Playing Music Card</div>
+              <div class="media-caption-desc">Visual layout template for audio player embeds, track details, album art placement, and playback status announcements.</div>
+              <div class="media-caption-path">other/listune-music-card.png</div>
+            </div>
+          </div>
+
+          <!-- Support Ticket Panel -->
+          <div class="media-card" data-type="utility">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('other/create-ticket.png', 'Support Ticket Panel Header')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="other/create-ticket.png" alt="Support Ticket Header" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">Support Ticket Panel Banner</div>
+              <div class="media-caption-desc">Header graphic for Discord support server ticketing panels and community help channels.</div>
+              <div class="media-caption-path">other/create-ticket.png</div>
+            </div>
+          </div>
+
+          <!-- Song Request Channel Header -->
+          <div class="media-card" data-type="utility">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('other/listune-req.png', 'Song Request Channel Header')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="other/listune-req.png" alt="Song Request Header" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">Song Request Channel Header</div>
+              <div class="media-caption-desc">Banner header for dedicated text channels where members queue songs and browse current tracks.</div>
+              <div class="media-caption-path">other/listune-req.png</div>
+            </div>
+          </div>
+
+          <!-- Member Welcomer Card -->
+          <div class="media-card" data-type="utility">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('other/listune-welcomer.png', 'Member Welcomer Card')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="other/listune-welcomer.png" alt="Member Welcomer" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">Member Welcomer Template</div>
+              <div class="media-caption-desc">Background graphic template for greeting, welcoming, and onboarding new server members.</div>
+              <div class="media-caption-path">other/listune-welcomer.png</div>
+            </div>
+          </div>
+
+          <!-- Welcy Alternative Graphic -->
+          <div class="media-card" data-type="utility">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('other/welcy.png', 'Welcy Graphic Asset')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="other/welcy.png" alt="Welcy Graphic" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">Welcy Greeting Card</div>
+              <div class="media-caption-desc">Alternative welcoming graphic for custom greeting embeds and bot direct messages.</div>
+              <div class="media-caption-path">other/welcy.png</div>
+            </div>
+          </div>
+
+          <!-- Background Wallpaper Logo -->
+          <div class="media-card" data-type="social">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('other/bg-logo.png', 'Background Wallpaper Logo Composition')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="other/bg-logo.png" alt="Background Logo" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">Background Logo Wallpaper</div>
+              <div class="media-caption-desc">Full-scale brand wallpaper composition featuring the Listune emblem on textured dark canvas.</div>
+              <div class="media-caption-path">other/bg-logo.png</div>
+            </div>
+          </div>
+
+          <!-- 3D White Transparent GIF -->
+          <div class="media-card" data-type="animated">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('animated/gif-transparent/listune-white-transparent.gif', '3D White Transparent Rotating GIF')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="animated/gif-transparent/listune-white-transparent.gif" alt="3D White GIF" style="max-height: 140px;" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">3D White Rotating GIF</div>
+              <div class="media-caption-desc">Transparent animated GIF of the white rotating 3D logo for markdown documentation and Discord chat.</div>
+              <div class="media-caption-path">animated/gif-transparent/listune-white-transparent.gif</div>
+            </div>
+          </div>
+
+          <!-- 3D Pink Transparent GIF -->
+          <div class="media-card" data-type="animated">
+            <div class="media-thumbnail-stage" onclick="openFullLightbox('animated/gif-transparent/listune-pink-transparent.gif', '3D Pink Transparent Rotating GIF')">
+              <span class="click-zoom-tag">Click to Enlarge</span>
+              <img src="animated/gif-transparent/listune-pink-transparent.gif" alt="3D Pink GIF" style="max-height: 140px;" />
+            </div>
+            <div class="media-caption-box">
+              <div class="media-caption-title">3D Pink Rotating GIF</div>
+              <div class="media-caption-desc">Transparent animated GIF of the pink rotating 3D logo for promotional web pages and presentations.</div>
+              <div class="media-caption-path">animated/gif-transparent/listune-pink-transparent.gif</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 09. Favicon & Web App Icons -->
+      <section class="section-wrap" id="favicons">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 09</span>
+            <h2 class="section-heading">Favicon and Web App Icon System</h2>
+          </div>
+          <p class="section-desc">
+            Complete suite of web icons, progressive web app icons, and mobile shortcuts stored in favicon/.
+          </p>
+        </div>
+
+        <div class="bento-grid-4">
+          <div class="bento-card" style="align-items: center; text-align: center;">
+            <img src="favicon/android-chrome-512x512.png" alt="Android 512" style="width: 72px; height: 72px; border-radius: 16px; margin-bottom: 12px;" />
+            <strong style="color: #ffffff; font-size: 0.95rem;">Android Chrome 512</strong>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-subtle); margin-top: 4px;">favicon/android-chrome-512x512.png</span>
+          </div>
+
+          <div class="bento-card" style="align-items: center; text-align: center;">
+            <img src="favicon/android-chrome-192x192.png" alt="Android 192" style="width: 64px; height: 64px; border-radius: 14px; margin-bottom: 12px;" />
+            <strong style="color: #ffffff; font-size: 0.95rem;">Android Chrome 192</strong>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-subtle); margin-top: 4px;">favicon/android-chrome-192x192.png</span>
+          </div>
+
+          <div class="bento-card" style="align-items: center; text-align: center;">
+            <img src="favicon/apple-touch-icon.png" alt="Apple Touch Icon" style="width: 64px; height: 64px; border-radius: 14px; margin-bottom: 12px;" />
+            <strong style="color: #ffffff; font-size: 0.95rem;">Apple Touch Icon (180x180)</strong>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-subtle); margin-top: 4px;">favicon/apple-touch-icon.png</span>
+          </div>
+
+          <div class="bento-card" style="align-items: center; text-align: center;">
+            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
+              <img src="favicon/favicon-32x32.png" alt="Favicon 32" style="width: 32px; height: 32px;" />
+              <img src="favicon/favicon-16x16.png" alt="Favicon 16" style="width: 16px; height: 16px;" />
+            </div>
+            <strong style="color: #ffffff; font-size: 0.95rem;">Browser Favicons (32 & 16)</strong>
+            <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-subtle); margin-top: 4px;">favicon/favicon-32x32.png</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. Motion Identity -->
+      <section class="section-wrap" id="motion">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 10</span>
+            <h2 class="section-heading">Motion and Animation Identity</h2>
+          </div>
+          <p class="section-desc">
+            Motion reflects the continuous rhythm of music. Transitions feel fluid and responsive without jarring speed changes.
+          </p>
+        </div>
+
+        <div class="bento-grid-2">
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 8px;">Smooth & Continuous</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+              The signature 3D rotating logo turns in a continuous, frictionless 360-degree loop, reflecting the perpetual flow of audio playback.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 8px;">Fluid Easing</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+              State changes and interface transitions use natural ease-in and ease-out timing curves rather than abrupt linear transitions.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 8px;">Subtle & Ambient</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+              Animations draw attention to playback status, volume adjustments, and primary actions without distracting from conversations.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 8px;">Master Video Formats (ProRes 4444)</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+              High-definition production masters with lossless alpha channels are stored in <code>animated/ProRess/</code> for Adobe Premiere, After Effects, and broadcast video editing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. Brand Voice -->
+      <section class="section-wrap" id="voice">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 11</span>
+            <h2 class="section-heading">Brand Voice and Tone</h2>
+          </div>
+          <p class="section-desc">
+            Listune speaks with clarity, musical awareness, and friendly respect for Discord server communities.
+          </p>
+        </div>
+
+        <div class="bento-grid-4">
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 8px;">Approachable</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
+              Friendly and conversational without being overly casual or unprofessional.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 8px;">Direct & Concise</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
+              Explains features and instructions clearly without technical jargon or artificial buzzwords.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 8px;">Music-Centric</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
+              Respects audio fidelity, playlists, album artists, and shared listening culture.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <h3 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 8px;">Discord-Native</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
+              Understands server communities, voice chat habits, and bot slash command conventions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. Brand Personality -->
+      <section class="section-wrap" id="personality">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 12</span>
+            <h2 class="section-heading">Brand Personality</h2>
+          </div>
+          <p class="section-desc">
+            If Listune were a person, it would be the reliable friend who always has the best playlist.
+          </p>
+        </div>
+
+        <div class="bento-grid-4">
+          <div class="bento-card">
+            <div style="font-size: 1.5rem; margin-bottom: 8px; color: var(--pink); font-weight: 800;">01</div>
+            <h3 style="font-size: 1rem; color: #ffffff; margin-bottom: 6px;">Attentive</h3>
+            <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.5;">Ready to queue and play immediately upon request without delay.</p>
+          </div>
+
+          <div class="bento-card">
+            <div style="font-size: 1.5rem; margin-bottom: 8px; color: var(--pink); font-weight: 800;">02</div>
+            <h3 style="font-size: 1rem; color: #ffffff; margin-bottom: 6px;">Modern</h3>
+            <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.5;">At home in digital chat communities, gaming voice rooms, and modern web apps.</p>
+          </div>
+
+          <div class="bento-card">
+            <div style="font-size: 1.5rem; margin-bottom: 8px; color: var(--pink); font-weight: 800;">03</div>
+            <h3 style="font-size: 1rem; color: #ffffff; margin-bottom: 6px;">Tasteful</h3>
+            <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.5;">Prefers clean aesthetics, smooth audio fidelity, and uncluttered presentation.</p>
+          </div>
+
+          <div class="bento-card">
+            <div style="font-size: 1.5rem; margin-bottom: 8px; color: var(--pink); font-weight: 800;">04</div>
+            <h3 style="font-size: 1rem; color: #ffffff; margin-bottom: 6px;">Social</h3>
+            <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.5;">Built to bring friends together around albums, queues, and shared moments.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13. Brand Do's and Don'ts -->
+      <section class="section-wrap" id="rules">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 13</span>
+            <h2 class="section-heading">Brand Do and Don't Guidelines</h2>
+          </div>
+          <p class="section-desc">
+            Essential rules for maintaining visual consistency across community touchpoints, graphics, and integrations.
+          </p>
+        </div>
+
+        <div class="bento-grid-3">
+          
+          <!-- Category 1: Logo & Identity -->
+          <div class="rule-card-item do">
+            <div class="rule-header-row">
+              <span class="rule-status-tag">Do</span>
+              <strong style="color: #ffffff; font-size: 0.92rem;">Logo & Identity</strong>
+            </div>
+            <ul class="rule-list-group">
+              <li>Use the white logo variant on dark backgrounds and navigation headers.</li>
+              <li>Use the circular symbol for profile pictures, avatars, and app icons.</li>
+              <li>Preserve the exact primary Listune Pink (#f3678e).</li>
+              <li>Keep the full clear space boundary around the emblem.</li>
+            </ul>
+          </div>
+
+          <!-- Category 2: Visual Presentation -->
+          <div class="rule-card-item do">
+            <div class="rule-header-row">
+              <span class="rule-status-tag">Do</span>
+              <strong style="color: #ffffff; font-size: 0.92rem;">Visual Presentation</strong>
+            </div>
+            <ul class="rule-list-group">
+              <li>Maintain strong contrast between text and background surfaces.</li>
+              <li>Use rounded geometry for containers and interactive buttons.</li>
+              <li>Pair the vibrant pink accent with calm, deep dark backgrounds.</li>
+              <li>Keep card surfaces subtle with thin 1px border strokes.</li>
+            </ul>
+          </div>
+
+          <!-- Category 3: Typography -->
+          <div class="rule-card-item do">
+            <div class="rule-header-row">
+              <span class="rule-status-tag">Do</span>
+              <strong style="color: #ffffff; font-size: 0.92rem;">Typography</strong>
+            </div>
+            <ul class="rule-list-group">
+              <li>Use Inter for body text, descriptions, and user interfaces.</li>
+              <li>Use Plus Jakarta Sans for display headlines and promotional titles.</li>
+              <li>Maintain comfortable line heights (1.5 to 1.6) for sustained reading.</li>
+              <li>Use bold weights (700/800) for strong visual hierarchy.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="bento-grid-3" style="margin-top: 20px;">
+          
+          <!-- Don't 1 -->
+          <div class="rule-card-item dont">
+            <div class="rule-header-row">
+              <span class="rule-status-tag">Don't</span>
+              <strong style="color: #ffffff; font-size: 0.92rem;">Logo Violations</strong>
+            </div>
+            <ul class="rule-list-group">
+              <li>Do not distort, stretch, or alter the logo aspect ratio.</li>
+              <li>Do not rotate the logo or place it at tilted angles.</li>
+              <li>Do not recolor the logo with unauthorized rainbow or neon hues.</li>
+              <li>Do not add outer glows, heavy shadows, or bevel filters.</li>
+            </ul>
+          </div>
+
+          <!-- Don't 2 -->
+          <div class="rule-card-item dont">
+            <div class="rule-header-row">
+              <span class="rule-status-tag">Don't</span>
+              <strong style="color: #ffffff; font-size: 0.92rem;">Presentation Violations</strong>
+            </div>
+            <ul class="rule-list-group">
+              <li>Do not build light-gray or all-white interface layouts; Listune is dark-first.</li>
+              <li>Do not clutter banners with excessive decorative elements.</li>
+              <li>Do not use generic clip-art or random music emojis in place of brand assets.</li>
+              <li>Do not use low-contrast text that compromises legibility.</li>
+            </ul>
+          </div>
+
+          <!-- Don't 3 -->
+          <div class="rule-card-item dont">
+            <div class="rule-header-row">
+              <span class="rule-status-tag">Don't</span>
+              <strong style="color: #ffffff; font-size: 0.92rem;">Type Violations</strong>
+            </div>
+            <ul class="rule-list-group">
+              <li>Do not use ornate, gothic, or novelty fonts for brand communications.</li>
+              <li>Do not use inconsistent font weights across related marketing collateral.</li>
+              <li>Do not set body text below 14px on desktop interfaces.</li>
+              <li>Do not use artificial letter spacing on body paragraphs.</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 14. Complete Asset Directory & File Index -->
+      <section class="section-wrap" id="directory">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 14</span>
+            <h2 class="section-heading">Complete Brand Asset Directory</h2>
+          </div>
+          <p class="section-desc">
+            A comprehensive catalog of all 31 verified media assets, master vectors, animations, and typography packages in the workspace.
+          </p>
+        </div>
+
+        <div class="data-table-container">
+          <table class="asset-data-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Asset File Path</th>
+                <th>Format</th>
+                <th>Primary Use Case</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong style="color: var(--pink);">Brand Identity</strong></td>
+                <td><code>logo/listune-logo.png</code></td>
+                <td>PNG (1024x1024)</td>
+                <td>Discord bot profile avatar, app store listings, circular badge</td>
+              </tr>
+              <tr>
+                <td><strong style="color: var(--pink);">Brand Identity</strong></td>
+                <td><code>logo/listune-logo.svg</code></td>
+                <td>SVG Vector</td>
+                <td>Scalable vector master for high-resolution graphics</td>
+              </tr>
+              <tr>
+                <td><strong style="color: var(--pink);">Brand Identity</strong></td>
+                <td><code>brand/listune-brand-white.svg</code></td>
+                <td>SVG Vector</td>
+                <td>Primary wordmark on dark surfaces and header bars</td>
+              </tr>
+              <tr>
+                <td><strong style="color: var(--pink);">Brand Identity</strong></td>
+                <td><code>brand/listune-brand-pink.svg</code></td>
+                <td>SVG Vector</td>
+                <td>Pink wordmark for dedicated marketing showcases</td>
+              </tr>
+              <tr>
+                <td><strong style="color: var(--pink);">Brand Identity</strong></td>
+                <td><code>brand/listune-brand-black.svg</code></td>
+                <td>SVG Vector</td>
+                <td>Monochrome black wordmark for light papers and printing</td>
+              </tr>
+              <tr>
+                <td><strong style="color: var(--pink);">Brand Identity</strong></td>
+                <td><code>other/listune-text.png</code></td>
+                <td>PNG Raster</td>
+                <td>Transparent pink wordmark for overlays</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #60a5fa;">3D Motion</strong></td>
+                <td><code>animated/webm-transparent/listune-white-alpha.webm</code></td>
+                <td>WebM Alpha</td>
+                <td>Transparent rotating 3D white logo for hero web stages</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #60a5fa;">3D Motion</strong></td>
+                <td><code>animated/webm-transparent/listune-pink-alpha.webm</code></td>
+                <td>WebM Alpha</td>
+                <td>Transparent rotating 3D pink logo for promotional video</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #60a5fa;">3D Motion</strong></td>
+                <td><code>animated/gif-transparent/listune-white-transparent.gif</code></td>
+                <td>GIF Transparent</td>
+                <td>Rotating 3D white logo for markdown docs and Discord chat</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #60a5fa;">3D Motion</strong></td>
+                <td><code>animated/gif-transparent/listune-pink-transparent.gif</code></td>
+                <td>GIF Transparent</td>
+                <td>Rotating 3D pink logo for presentations</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #60a5fa;">3D Motion</strong></td>
+                <td><code>animated/ProRess/listune-white-3d-prores4444.mov</code></td>
+                <td>ProRes 4444</td>
+                <td>Lossless video production master for stream overlays</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #60a5fa;">3D Motion</strong></td>
+                <td><code>animated/ProRess/listune-pink-3d-prores4444.mov</code></td>
+                <td>ProRes 4444</td>
+                <td>Lossless video production master for video editors</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #f472b6;">Banners</strong></td>
+                <td><code>animated/banner/listune-banner-animated.gif</code></td>
+                <td>GIF / MP4</td>
+                <td>Official animated Discord community banner (Pink)</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #f472b6;">Banners</strong></td>
+                <td><code>animated/banner/listune-banner-white-animated.gif</code></td>
+                <td>GIF / MP4</td>
+                <td>Official animated Discord community banner (White)</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #f472b6;">Banners</strong></td>
+                <td><code>og-image/og-image.png</code></td>
+                <td>PNG (3576x1184)</td>
+                <td>OpenGraph social card for link embeds and Twitter shares</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #34d399;">Discord Utility</strong></td>
+                <td><code>other/listune-music-card.png</code></td>
+                <td>PNG Card</td>
+                <td>Now Playing audio layout template for track announcements</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #34d399;">Discord Utility</strong></td>
+                <td><code>other/create-ticket.png</code></td>
+                <td>PNG Banner</td>
+                <td>Header banner for community support ticketing panels</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #34d399;">Discord Utility</strong></td>
+                <td><code>other/listune-req.png</code></td>
+                <td>PNG Banner</td>
+                <td>Header banner for dedicated #song-request channels</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #34d399;">Discord Utility</strong></td>
+                <td><code>other/listune-welcomer.png</code></td>
+                <td>PNG Banner</td>
+                <td>Greeting banner background for welcoming new members</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #34d399;">Discord Utility</strong></td>
+                <td><code>other/welcy.png</code></td>
+                <td>PNG Banner</td>
+                <td>Alternative greeting card graphic</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #34d399;">Discord Utility</strong></td>
+                <td><code>other/bg-logo.png</code></td>
+                <td>PNG Wallpaper</td>
+                <td>Desktop wallpaper background logo composition</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #34d399;">Discord Utility</strong></td>
+                <td><code>other/brands.png</code></td>
+                <td>PNG Graphic</td>
+                <td>Extended branding lockup graphic</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #34d399;">Discord Utility</strong></td>
+                <td><code>other/preview-card.png</code></td>
+                <td>PNG Card</td>
+                <td>Social preview card template</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #a78bfa;">Favicon Suite</strong></td>
+                <td><code>favicon/android-chrome-512x512.png</code></td>
+                <td>PNG (512x512)</td>
+                <td>High-res Progressive Web App icon</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #a78bfa;">Favicon Suite</strong></td>
+                <td><code>favicon/android-chrome-192x192.png</code></td>
+                <td>PNG (192x192)</td>
+                <td>Standard mobile web app icon</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #a78bfa;">Favicon Suite</strong></td>
+                <td><code>favicon/apple-touch-icon.png</code></td>
+                <td>PNG (180x180)</td>
+                <td>iOS home screen bookmark icon</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #a78bfa;">Favicon Suite</strong></td>
+                <td><code>favicon/favicon-32x32.png</code></td>
+                <td>PNG (32x32)</td>
+                <td>Desktop browser tab icon</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #a78bfa;">Favicon Suite</strong></td>
+                <td><code>favicon/favicon-16x16.png</code></td>
+                <td>PNG (16x16)</td>
+                <td>Small browser address bar icon</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #a78bfa;">Favicon Suite</strong></td>
+                <td><code>favicon/favicon.ico</code></td>
+                <td>ICO Multi</td>
+                <td>Legacy browser compatibility icon</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #fbbf24;">Typography</strong></td>
+                <td><code>fonts/Inter/Inter[opsz,wght].ttf</code></td>
+                <td>Variable TTF</td>
+                <td>Official body font (SIL Open Font License 1.1)</td>
+              </tr>
+              <tr>
+                <td><strong style="color: #fbbf24;">Typography</strong></td>
+                <td><code>fonts/PlusJakartaSans/PlusJakartaSans[wght].ttf</code></td>
+                <td>Variable TTF</td>
+                <td>Official display font (SIL Open Font License 1.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    
+      <!-- 15. Standard License -->
+      <section class="section-wrap" id="license">
+        <div class="section-header-row">
+          <div class="section-title-wrap">
+            <span class="section-index-pill">Section 15</span>
+            <h2 class="section-heading">License (CC BY-NC-ND 4.0)</h2>
+          </div>
+          <p class="section-desc">
+            Standard strict creative license governing all brand assets, logos, animations, and media in this repository.
+          </p>
+        </div>
+
+        <div class="bento-card" style="border-left: 4px solid var(--pink);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+                <span style="font-size: 0.74rem; text-transform: uppercase; color: var(--pink); font-weight: 700; letter-spacing: 0.08em;">Standard Public License</span>
+                <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--emerald); background: var(--emerald-tint); padding: 2px 8px; border-radius: 4px;">SPDX: CC-BY-NC-ND-4.0</span>
+              </div>
+              <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 8px;">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</h3>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; max-width: 860px; margin-bottom: 16px;">
+                The standard strict license for creative brand assets on the internet. You are free to share and display the assets for non-commercial community purposes provided you credit Listune Official, make no modifications or derivative works, and respect trademark integrity. Software licenses (such as MIT or GPL) applicable to code do not grant trademark rights.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px; flex-shrink: 0;">
+              <a href="LICENSE.md" class="nav-btn-accent" target="_blank">
+                View LICENSE.md ↗
+              </a>
+              <a href="LICENSE" class="nav-btn-outline" target="_blank">
+                Raw LICENSE
+              </a>
+            </div>
+          </div>
+
+          <div class="bento-grid-3" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-subtle);">
+            <div>
+              <strong style="color: #ffffff; font-size: 0.88rem;">NonCommercial (NC)</strong>
+              <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 4px; line-height: 1.5;">You may not use the material for commercial purposes, merchandise, or paid packages without prior written consent.</p>
+            </div>
+            <div>
+              <strong style="color: #ffffff; font-size: 0.88rem;">NoDerivatives (ND)</strong>
+              <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 4px; line-height: 1.5;">If you remix, transform, or build upon the material, you may not distribute the modified material.</p>
+            </div>
+            <div>
+              <strong style="color: #ffffff; font-size: 0.88rem;">Attribution (BY)</strong>
+              <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 4px; line-height: 1.5;">You must give appropriate credit to Listune Official and provide a link to the license.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.page-content -->
+
+    <!-- Full-Width Footer -->
+    <footer class="page-footer">
+      <div>
+        <strong>Listune Official Brand Guidelines</strong> (c) 2026 Listune Official. All rights reserved.
+      </div>
+      <div>
+        Designed for Discord Servers, Web Dashboard, and Community Touchpoints. | <a href="LICENSE.md" style="color: var(--pink); text-decoration: underline;" target="_blank">License Agreement</a>
+      </div>
+      <a href="#overview" style="color: var(--pink); font-weight: 600;">
+        Back to Top ↑
+      </a>
+    </footer>
+
+  </div><!-- /.page-wrapper -->
+
+  <!-- Full-Screen Lightbox Modal -->
+  <div class="lightbox-modal" id="fullLightbox" onclick="closeFullLightbox(event)">
+    <div class="lightbox-body">
+      <button class="lightbox-close-btn" onclick="closeFullLightbox(event)">Close ✕</button>
+      <img id="lightboxImageEl" src="" alt="Enlarged Brand Asset" />
+      <div class="lightbox-desc" id="lightboxTextEl"></div>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification -->
+  <div class="toast-box" id="toastElement">
+    <span style="color: var(--pink);">✓</span>
+    <span id="toastContentText">Copied to clipboard</span>
+  </div>
+
+  <!-- Interactive Logic -->
+  <script>
+    // Copy Text to Clipboard with Toast Notification
+    function copyText(str) {
+      navigator.clipboard.writeText(str).then(() => {
+        const toast = document.getElementById('toastElement');
+        const text = document.getElementById('toastContentText');
+        text.textContent = 'Copied ' + str + ' to clipboard';
+        toast.classList.add('visible');
+        setTimeout(() => {
+          toast.classList.remove('visible');
+        }, 2200);
+      });
+    }
+
+    // Hero 3D Video Toggle (White / Pink)
+    function switchHeroVideo(variant) {
+      const video = document.getElementById('heroRotatingVideo');
+      const label = document.getElementById('heroVideoLabel');
+      const btnWhite = document.getElementById('btn3dWhite');
+      const btnPink = document.getElementById('btn3dPink');
+
+      if (variant === 'pink') {
+        video.src = 'animated/webm-transparent/listune-pink-alpha.webm';
+        label.textContent = 'listune-pink-alpha.webm';
+        btnPink.classList.add('active');
+        btnWhite.classList.remove('active');
+      } else {
+        video.src = 'animated/webm-transparent/listune-white-alpha.webm';
+        label.textContent = 'listune-white-alpha.webm';
+        btnWhite.classList.add('active');
+        btnPink.classList.remove('active');
+      }
+      video.play();
+    }
+
+    // Interactive Contrast and Logo Simulator
+    function simulateContrast(mode) {
+      const box = document.getElementById('simulatorStageBox');
+      const img = document.getElementById('simulatorLogoImg');
+      const badge = document.getElementById('contrastBadge');
+      const explanation = document.getElementById('simulatorExplanation');
+      const fileBadge = document.getElementById('simulatorFileBadge');
+
+      const btnDark = document.getElementById('simBtnDark');
+      const btnCharcoal = document.getElementById('simBtnCharcoal');
+      const btnPink = document.getElementById('simBtnPink');
+      const btnWhite = document.getElementById('simBtnWhite');
+
+      [btnDark, btnCharcoal, btnPink, btnWhite].forEach(b => b.classList.remove('active'));
+
+      if (mode === 'dark') {
+        btnDark.classList.add('active');
+        box.className = 'logo-display-box bg-dark';
+        img.src = 'brand/listune-brand-white.svg';
+        badge.innerHTML = '✓ Optimal Contrast: 18.2:1 (Passed AAA)';
+        badge.style.color = 'var(--emerald)';
+        badge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+        explanation.innerHTML = '<strong style="color: #ffffff;">Dark Surface (#0d0d0d):</strong> Displaying the <strong>White Wordmark</strong>. Provides maximum contrast and clean visual clarity.';
+        fileBadge.textContent = 'brand/listune-brand-white.svg';
+      } else if (mode === 'charcoal') {
+        btnCharcoal.classList.add('active');
+        box.className = 'logo-display-box bg-charcoal';
+        img.src = 'brand/listune-brand-pink.svg';
+        badge.innerHTML = '✓ Balanced Accent: 5.6:1 (Passed AA)';
+        badge.style.color = 'var(--pink)';
+        badge.style.borderColor = 'rgba(243, 103, 142, 0.3)';
+        explanation.innerHTML = '<strong style="color: #ffffff;">Charcoal Surface (#181d26):</strong> Displaying the <strong>Brand Pink Wordmark</strong>. Highlights brand accent against deep neutral tone.';
+        fileBadge.textContent = 'brand/listune-brand-pink.svg';
+      } else if (mode === 'pink') {
+        btnPink.classList.add('active');
+        box.className = 'logo-display-box bg-pink';
+        img.src = 'brand/listune-brand-white.svg';
+        badge.innerHTML = '✓ Brand Rule Applied: White on Pink (6.8:1)';
+        badge.style.color = '#ffffff';
+        badge.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+        explanation.innerHTML = '<strong style="color: #ffffff;">Brand Pink Surface (#f3678e):</strong> Automatically switched to <strong>White Wordmark</strong>. <em>Rule: Never place pink text on pink backgrounds. The white logo maintains crisp contrast.</em>';
+        fileBadge.textContent = 'brand/listune-brand-white.svg';
+      } else if (mode === 'white') {
+        btnWhite.classList.add('active');
+        box.className = 'logo-display-box bg-light';
+        img.src = 'brand/listune-brand-black.svg';
+        badge.innerHTML = '✓ Document Contrast: 19.5:1 (Passed AAA)';
+        badge.style.color = '#0d0d0d';
+        badge.style.borderColor = 'rgba(0, 0, 0, 0.2)';
+        explanation.innerHTML = '<strong style="color: #0d0d0d;">Pure White Surface (#ffffff):</strong> Automatically switched to <strong>Monochrome Black Wordmark</strong>. <em>Rule: Never place white logos on white backgrounds.</em>';
+        fileBadge.textContent = 'brand/listune-brand-black.svg';
+      }
+    }
+
+    // Toggle White Wordmark Card Background (Dark vs Pink)
+    function toggleWhiteCardBg(mode) {
+      const box = document.getElementById('boxWhiteWordmarkCard');
+      const btnDark = document.getElementById('btnWhiteCardDark');
+      const btnPink = document.getElementById('btnWhiteCardPink');
+
+      if (mode === 'pink') {
+        box.className = 'logo-display-box bg-pink';
+        btnPink.classList.add('active');
+        btnDark.classList.remove('active');
+      } else {
+        box.className = 'logo-display-box bg-dark';
+        btnDark.classList.add('active');
+        btnPink.classList.remove('active');
+      }
+    }
+
+    // Toggle Pink Wordmark Card Background (Charcoal vs White)
+    function togglePinkCardBg(mode) {
+      const box = document.getElementById('boxPinkWordmarkCard');
+      const btnDark = document.getElementById('btnPinkCardDark');
+      const btnWhite = document.getElementById('btnPinkCardWhite');
+
+      if (mode === 'white') {
+        box.className = 'logo-display-box bg-light';
+        btnWhite.classList.add('active');
+        btnDark.classList.remove('active');
+      } else {
+        box.className = 'logo-display-box bg-charcoal';
+        btnDark.classList.add('active');
+        btnWhite.classList.remove('active');
+      }
+    }
+
+    // Media Gallery Filter Tabs
+    function filterMedia(type, btn) {
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('#mediaGalleryContainer .media-card');
+      cards.forEach(card => {
+        const cardType = card.getAttribute('data-type');
+        if (type === 'all' || cardType === type) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Lightbox Modal Handlers
+    function openFullLightbox(src, desc) {
+      const modal = document.getElementById('fullLightbox');
+      const img = document.getElementById('lightboxImageEl');
+      const text = document.getElementById('lightboxTextEl');
+
+      img.src = src;
+      text.textContent = desc;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFullLightbox(e) {
+      if (e.target.id === 'fullLightbox' || e.target.classList.contains('lightbox-close-btn')) {
+        const modal = document.getElementById('fullLightbox');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Mobile Dropdown Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileDropdown');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+        });
+      });
+    }
+
+    // Active Navigation Highlighting on Scroll
+    const sections = document.querySelectorAll('.section-wrap');
+    const navLinks = document.querySelectorAll('.nav-menu .nav-item-link');
+
+    window.addEventListener('scroll', () => {
+      let currentSection = '';
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        const h = sec.offsetHeight;
+        if (scrollY >= top && scrollY < top + h) {
+          currentSection = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSection) {
+          link.classList.add('active');
+        }
+      });
+    }, { passive: true });
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Production master video files (>100MB, excluded from GitHub git tracking)
+animated/ProRess/
+
+# OS and temporary files
+.DS_Store
+Thumbs.db
+*.tmp
