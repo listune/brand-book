@@ -55,7 +55,7 @@ The Listune logo exists in two forms: the **Circular Symbol (App Icon)** and the
 * **Black Wordmark**: For white documents, paper printing, and high-key light backgrounds.
 
 ### 3.4 Animated Logo
-* **Master Files**: `animated/webm-transparent/listune-white-alpha.webm`, `animated/gif-transparent/listune-white-transparent.gif`, and `animated/ProRess/listune-white-3d-prores4444.mov`
+* **Master Files**: `animated/webm-transparent/listune-white-alpha.webm` and `animated/gif-transparent/listune-white-transparent.gif`
 * **Visual Structure**: A 3D rendered version of the Listune logo rotating smoothly on a transparent background.
 * **Primary Purpose**: Hero sections, video openers, broadcast overlays, and digital promotional displays.
 
